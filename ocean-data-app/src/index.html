@@ -8,6 +8,55 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <div class="container">
+  <app-ocean-conditions></app-ocean-conditions>
+  <app-endangered-species></app-endangered-species>
+  <app-conservation-projects></app-conservation-projects>
+</div>
+
+<div class="ocean-conditions">
+  <h2>Condições Oceânicas</h2>
+  <form [formGroup]="filtersForm">
+    <label for="region">Região:</label>
+    <select id="region" formControlName="region">
+      <option value="">Todas</option>
+      <option *ngFor="let region of regions">{{ region }}</option>
+    </select>
+
+    <label for="waterTemperature">Temperatura da Água:</label>
+    <input type="number" id="waterTemperature" formControlName="waterTemperature">
+
+    <label for="pH">pH:</label>
+    <input type="number" id="pH" formControlName="pH">
+
+    <label for="pollutionLevels">Níveis de Poluição:</label>
+    <input type="number" id="pollutionLevels" formControlName="pollutionLevels">
+
+    <button type="button" (click)="filterData()">Filtrar</button>
+  </form>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Temperatura da Água</th>
+        <th>pH</th>
+        <th>Níveis de Poluição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of oceanData">
+        <td>{{ data.date }}</td>
+        <td>{{ data.waterTemperature }}</td>
+        <td>{{ data.pH }}</td>
+        <td>{{ data.pollutionLevels }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <app-root>
+    
+  </app-root>
 </body>
 </html>

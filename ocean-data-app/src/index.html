@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>OceanDataApp</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -14,13 +15,21 @@
   <app-conservation-projects></app-conservation-projects>
 </div>
 
+<h2>Condições Oceânicas</h2>
 <div class="ocean-conditions">
-  <h2>Condições Oceânicas</h2>
+
+  <h3>Filtros</h3>
   <form [formGroup]="filtersForm">
     <label for="region">Região:</label>
     <select id="region" formControlName="region">
       <option value="">Todas</option>
       <option *ngFor="let region of regions">{{ region }}</option>
+    </select>
+
+    <label for="specie">Espécie:</label>
+    <select id="specie" formControlName="specie">
+      <option value="">Todas</option>
+      <option *ngFor="let specie of species">{{ specie }}</option>
     </select>
 
     <label for="waterTemperature">Temperatura da Água:</label>
@@ -32,13 +41,17 @@
     <label for="pollutionLevels">Níveis de Poluição:</label>
     <input type="number" id="pollutionLevels" formControlName="pollutionLevels">
 
-    <button type="button" (click)="filterData()">Filtrar</button>
+    <button type="button" (click)="filterData()">Pesquisar</button>
   </form>
 
+
+<h3>Tabela de Dados</h3>
+<div>
   <table class="data-table">
     <thead>
       <tr>
         <th>Data</th>
+        <th>Espécie</th>
         <th>Temperatura da Água</th>
         <th>pH</th>
         <th>Níveis de Poluição</th>
@@ -56,7 +69,7 @@
 </div>
 
   <app-root>
-    
+
   </app-root>
 </body>
 </html>

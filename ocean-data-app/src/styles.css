@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 30px;
+}
+
+/* Aplicando a fonte aos elementos específicos */
+.filters label,
+table,
+th,
+td {
+  font-family: 'Inter', sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0; /* Margem ao redor da tabela */
+  border-radius: 10px; /* Bordas arredondadas para a tabela */
+  overflow: hidden; /* Garante que o conteúdo da tabela siga o formato arredondado */
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+td {
+  background-color: #fff;
+}
+
+/* Adicionar bordas arredondadas e margens ao container da tabela */
+.data-table {
+  margin: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #0e0e0e;
+}
